@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+
+<body>
+
+  <!-- ***** Header Area Start ***** -->
+  {% block navbar %}
+ 
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                  <a href="index.html" class="logo">
+                      <img src="{% static 'royal/assets/images/templatemo-eduwell.png' %}" alt="EduWell Template">
+                  </a>
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                 <ul>
+                                    <li class="active">
+                                        <a href="{% url 'home' %}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="#portfolio">Portfolio</a>
+                                    </li>
+                                    <li class="drop-down">
+                                        <a href="">ACTIVITY</a>
+                                        <ul>
+                                            <li class="drop-down">
+                                                <a href="#">Task Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'addtask' %}">Add Task</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewtask' %}">View Task</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">User Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'adduser' %}">Add User</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewuser' %}">View User</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">Team Activity</a>
+                                                <ul>
+                                                   <li>
+                                                        <a href="{% url 'addteam' %}">Add Team</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewteam' %}">View Team</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'contact_us' %}">Contact Us</a>
+                                    </li>
+                                </ul>
+                        
+                          
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+                </nav>
+              </div>
+          </div>
+      </div>
+  </header> 
+  {% endblock navbar %} 
+  <!-- ***** Header Area End ***** -->
+  
+  {% block content %}
+  <br><br><br><br><br>
+  <div class="container">
+      <div class="section-heading">
+          <h4><em>DELETE </em> MODULE</h4>
+      </div>
+      <div>
+          <form method="post">
+              {% csrf_token %}
+              <div class="alert alert-warning" role="alert">
+                  Are you sure you want to delete <strong>{{object.project_title}}</strong> ?
+              </div>
+              <button type="submit" class="btn btn-danger">DELETE</button>
+              <!-- <button type="submit" class="btn btn-danger">DELETE</button> -->
+          </form>
+      </div>
+  </div>
+ {% endblock content %}
+</body>
+</html>

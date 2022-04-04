@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+
+<body>
+
+  <!-- ***** Header Area Start ***** -->
+  {% block navbar %}
+ 
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                  <a href="index.html" class="logo">
+                      <img src="{% static 'royal/assets/images/templatemo-eduwell.png' %}" alt="EduWell Template">
+                  </a>
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                  <ul>
+                                    <li class="active">
+                                        <a href="{% url 'home' %}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="#portfolio">Portfolio</a>
+                                    </li>
+                                    <li class="drop-down">
+                                        <a href="">ACTIVITY</a>
+                                        <ul>
+                                            <li class="drop-down">
+                                                <a href="#">Task Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'addtask' %}">Add Task</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewtask' %}">View Task</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">User Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'adduser' %}">Add User</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewuser' %}">View User</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">Team Activity</a>
+                                                <ul>
+                                                   <li>
+                                                        <a href="{% url 'addteam' %}">Add Team</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewteam' %}">View Team</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'contact_us' %}">Contact Us</a>
+                                    </li>
+                                </ul>
+                        
+                       
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+                </nav>
+              </div>
+          </div>
+      </div>
+  </header> 
+  {% endblock navbar %} 
+  <!-- ***** Header Area End ***** -->
+  
+  {% block content %}
+  
+ {% endblock content %}
+ 
+ {% block header %}
+
+  <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h4>PROJECT<em> DETAIL</em></h4>
+      </div>
+
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+
+            <div class="icon-box wow fadeInUp">
+              <h4>1. </h4>
+              <!-- <div class="icon"><i class="fa fa-shopping-bag"></i></div> -->
+              <h4 class="title"><a href="">MODULE TITLE</a></h4>
+              <dl class="description">
+                  <dd><h6>-> {{temp.project_title}}</h6></dd>
+             </dl>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+              <!-- <div class="icon"><i class="fa fa-photo"></i></div> -->
+              <h4>2. </h4>
+              <h4 class="title"><a href="">MODULE DISCRIPTION</a></h4>
+               <dl class="description">
+                {% comment %} <dt>Module Description</dt> {% endcomment %}
+                <dd><h6>-> {{temp.project_description}}</h6></dd>
+              </dl>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <h4>3. </h4>
+              <!--<div class="icon"><i class="fa fa-bar-chart"></i></div> -->
+              <h4 class="title"><a href="">MODULE TECHNOLOGY</a></h4>
+              <dl class="description">
+                <dd ><h6>-> {{temp.project_technology}}</h6></dd>
+             </dl>
+            </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+    </section><!-- #about -->
+    {% endblock header %}
+</body>
+</html>

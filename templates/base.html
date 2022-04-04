@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
+{% block css %}
+
+  {% comment %} assets css start {% endcomment %}
+   <link href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900' %}" rel="stylesheet">
+   <!-- Bootstrap core CSS -->
+  <link href="{% static 'royal/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'royal/assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'royal/assets/css/templatemo-eduwell-style.css' %}">
+    <link rel="stylesheet" href="{% static 'royal/assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'royal/assets/css/lightbox.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'royal/style.css' %}"> {% endcomment %}
+   
+   {% comment %} royal1 css {% endcomment %}
+  <link href="{% static 'royal1/main/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'royal1/main/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'royal1/main/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'royal1/main/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'royal1/main/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'royal1/main/lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'royal1/main/lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'royal1/main/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'royal1/main/lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+  <!-- Main Stylesheet File -->
+ 
+
+
+{% endblock css %}
+ 
+
+
+</head>
+<body>
+  {% block script %}
+    {% comment %} assets js start {% endcomment %}
+    <script src="{% static 'royal/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'royal/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'royal/assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'royal/assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'royal/assets/js/lightbox.js' %}"></script>
+    <script src="{% static 'royal/assets/js/tabs.js' %}"></script>
+    <script src="{% static 'royal/assets/js/video.js' %}"></script>
+    <script src="{% static 'royal/assets/js/slick-slider.js' %}"></script>
+    <script src="{% static 'royal/assets/js/custom.js' %}"></script>
+    <script src="{% static 'royal/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'royal/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'royal/assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'royal/assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'royal/assets/js/lightbox.js' %}"></script>
+    <script src="{% static 'royal/assets/js/tabs.js' %}"></script>
+    <script src="{% static 'royal/assets/js/video.js' %}"></script>
+    <script src="{% static 'royal/assets/js/slick-slider.js' %}"></script>
+    <script src="{% static 'royal/assets/js/custom.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/jquery/jquery-migrate.min.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/mobile-nav/mobile-nav.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/isotope/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'royal1/main/lib/lightbox/js/lightbox.min.js' %}"></script>
+    <script src="{% static 'royal1/contactform/contactform.js' %}"></script>
+  <script src="{% static 'royal1/main/js/main.js' %}"></script>
+
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+          var
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+          if (isAnimate) {
+            $('body, html').animate({
+              scrollTop: reqSectionPos },
+            800);
+          } else {
+            $('body, html').scrollTop(reqSectionPos);
+          }
+
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+          e.preventDefault();
+          showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+          checkSection();
+        }); 
+
+        <!-- Bootstrap core JavaScript -->
+    
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+          var
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+          if (isAnimate) {
+            $('body, html').animate({
+              scrollTop: reqSectionPos },
+            800);
+          } else {
+            $('body, html').scrollTop(reqSectionPos);
+          }
+
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+          e.preventDefault();
+          showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+          checkSection();
+        });
+        {% comment %} assets js end {% endcomment %}
+
+    </script>
+    
+    
+  {% endblock script %}
+
+
+  {% block navbar %}
+    
+  {% endblock navbar %}
+
+  {% block header %}
+    
+  {% endblock header %}
+
+  {% block content %}
+
+  {% endblock content %}
+
+  {% block footer %}
+    
+  {% endblock footer %}
+
+
+  
+</body>
+</html>
+   

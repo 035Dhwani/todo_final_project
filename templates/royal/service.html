@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+
+<body>
+    {% block navbar %}
+    
+   
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <nav class="main-nav">
+                                <!-- ***** Logo Start ***** -->
+                                <a href="index.html" class="logo">
+                                    <img src=" {% static 'royal/assets/images/EASY WORK! (3)_80x80.png' %}"
+                                         alt="EduWell Template">
+                                </a>                              
+                                <ul>
+                                    <li class="active">
+                                        <a href="{% url 'home' %}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="#portfolio">Portfolio</a>
+                                    </li>
+                                    <li class="drop-down">
+                                        <a href="">ACTIVITY</a>
+                                        <ul>
+                                            <li class="drop-down">
+                                                <a href="#">Task Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'addtask' %}">Add Task</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewtask' %}">View Task</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">User Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'adduser' %}">Add User</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewuser' %}">View User</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">Team Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'addtask' %}">Add Team</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewtask' %}">View Team</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'contact_us' %}">Contact Us</a>
+                                    </li>
+                                </ul>
+                                <!-- .main-nav --><a class='menu-trigger'>
+                                <span>Menu</span>
+                            </a>
+                            <!-- ***** Menu End ***** -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+  {% endblock navbar %}
+  <!-- ***** Header Area End ***** -->
+  {% block content %}
+
+  <section class="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h6>Our Services</h6>
+            <h4>Provided <em>Services</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          {% comment %} <div class="owl-service-item owl-carousel"> {% endcomment %}
+          <div class="row">
+            <div class="item">
+              <div class="service-item">
+                <div class="icon">
+                  <img src="{% static 'royal/assets/images/add.png' %}" alt="">
+                </div>
+                <h4>Quick Add</h4>
+                <p>Get a clear overview of everything on your plate and never lose track of an important task.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="service-item">
+                <div class="icon">
+                  <img src="{% static 'royal/assets/images/priority.webp' %} " alt="">
+                </div>
+                <h4>Priorirt Levels</h4>
+                <p>Focus your energy on the right things</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="service-item">
+                <div class="icon">
+                  <img src="{% static 'royal/assets/images/board.png' %} " alt="">
+                </div>
+                <h4>Boards</h4>
+                <p>Build your own task views to fit your unique style and workflow.</p>
+              </div>
+            </div> 
+            <div class="item">
+              <div class="service-item">
+                <div class="icon">
+                  <img src="{% static 'royal/assets/images/email.webp' %} " alt="">
+                </div>
+                <h4>Email</h4>
+                <p>Create tasks from emails, set up automations, attach emails to any task, and more.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="service-item">
+                <div class="icon">
+                  <img src="{% static 'royal/assets/images/gantt.png' %} " alt="">
+                </div>
+                <h4>Gantt Chart</h4>
+                <p>Schedule, manage dependencies, and prioritize anything into an elegant project timeline.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="service-item">
+                <div class="icon">
+                  <img src="{% static 'royal/assets/images/service-icon-01.png' %} " alt="">
+                </div>
+                <h4>Notepad</h4>
+                <p>Quickly note down your notes, format with rich editing, and transform entries into trackable tasks that you can access from anywhere.</p>
+              </div>
+            </div>
+            </div>
+          {% comment %} </div> {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="simple-cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 offset-lg-1">
+          <div class="left-image">
+            <img src="{% static 'royal/assets/images/cta-left-image.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-5 align-self-center">
+          <h6>Get the subscription right now!</h6>
+          <h4>Up to 50% OFF For 2 years</h4>
+          <br>
+          <div class="white-button">
+            <a href="contact-us.html">View Subscription Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-product">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h6>Featured Service</h6>
+            <h4>Best Of Our <em>Product</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-3 align-self-center">
+          <div class="left-info">
+            <div class="col-lg-12">
+              <div class="info-item">
+                <div class="icon">
+                  <img src="{% static 'royal/assets/images/mind-map.png' %}" alt="">
+                </div>
+                <h4>Mind Map</h4>
+                <p>Transform your brain dumps into beautiful Mind Maps.</p>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="info-item last-info">
+                <div class="icon">
+                  <img src="{% static 'royal/assets/images/kanban.webp' %}" alt="">
+                </div>
+                <h4>Kanban Board</h4>
+                <p>Build a flexible Kanban system to visualize your work and improve project management.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="product-image">
+            <img src="{% static 'royal/assets/images/team logo2.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-3 align-self-center">
+          <div class="right-info">
+            <div class="col-lg-12">
+              <div class="info-item">
+                <div class="icon">
+                  <img src="{% static 'royal/assets/images/archive.png' %}" alt="">
+                </div>
+                <h4>Archive Mode</h4>
+                <p>Archive your confidential docs or pages from anyone.</p>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="info-item last-info">
+                <div class="icon">
+                  <img src="{% static 'royal/assets/images/chat3.jpg' %}" alt="">
+                </div>
+                <h4>Team Chat</h4>
+                <p>Create unique chat with also support audio for each topic and saved forever.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-us our-office">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="left-info">
+            <div class="section-heading">
+              <h6>Our Office</h6>
+              <h4>Get closer to <em>US</em></h4>
+            </div>
+            <p>Trust fund nocore broklyn humblebrag mustache
+              pork kitsch, bicycle rights hexagon schlitz keytar palo is
+              santo drinking vinegar fam ramps. <br><br>Four dollar toast and
+              edison bulb vinyl, listicle hashtag pug scenester typewrit
+              er yuccie street artboard or whatever to fill place.</p>
+            <ul>
+              <li>- Selfies you probably haven't heard of them.</li>
+              <li>- Tousled cold-pressed chicharrones yuccie.</li>
+              <li>- Pabst iPhone chartreuse shabby chic tumeric.</li>
+              <li>- Scenester normcore mumblecore snackwave.</li>
+            </ul>
+            <div class="main-button-gradient">
+              <a href="our-services.html">Our Services</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div id="video">
+            <div class="thumb">
+              <img src="{% static 'royal/assets/images/team.webp' %}" alt="">
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <ul class="social-icons">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-12">
+          <p class="copyright">Copyright © 2022 EduWell Co., Ltd. All Rights Reserved. 
+          
+          <br>Design: <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock content %}
+</body>
+
+</html>

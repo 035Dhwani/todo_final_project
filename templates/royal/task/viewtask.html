@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+
+<body>
+
+  <!-- ***** Header Area Start ***** -->
+  {% block navbar %}
+ 
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                  <a href="index.html" class="logo">
+                      <img src="{% static 'royal/assets/images/templatemo-eduwell.png' %}" alt="EduWell Template">
+                  </a>
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                   <ul>
+                                    <li class="active">
+                                        <a href="{% url 'home' %}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="#portfolio">Portfolio</a>
+                                    </li>
+                                    <li class="drop-down">
+                                        <a href="">ACTIVITY</a>
+                                        <ul>
+                                            <li class="drop-down">
+                                                <a href="#">Task Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'addtask' %}">Add Task</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewtask' %}">View Task</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">User Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'adduser' %}">Add User</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewuser' %}">View User</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">Team Activity</a>
+                                                <ul>
+                                                   <li>
+                                                        <a href="{% url 'addteam' %}">Add Team</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewteam' %}">View Team</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="drop-down">
+                                        <a href="">PEOPLE</a>
+                                        <ul>
+                                            <li class="drop-down">
+                                                <a href="#">START TEAM</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'addteam' %}">Invite Teammate</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li> 
+                                    <li>
+                                        <a href="{% url 'contact_us' %}">Contact Us</a>
+                                    </li>
+                                </ul>
+                        
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+                </nav>
+              </div>
+          </div>
+      </div>
+  </header> 
+  {% endblock navbar %} 
+  <!-- ***** Header Area End ***** -->
+  
+  {% block content %}
+  <br><br><br><br><br>
+  <div class="section-heading">
+          <h4>VIEW <em> ALL MODULES</em></h4>
+      </div>
+  <table class="table">
+      <tr>
+          <thead class="thread-light">
+              <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">TITLE</th>
+                  <th scope="col">DESCRIPTION</th>
+                  <th scope="col">TECHNOLOGY</th>
+                  <th scope="col">ESTIMATED HOURS</th>
+                  <th scope="col">STATUS</th>
+                  <th scope="col">ACTION</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for module in temp  %}
+              <tr>
+                  <td><a href = "{% url 'detailtask' module.pk%}">{{module.id}}</a></td>
+                  <td>{{module.project_title}}</td>
+                  <td>{{module.project_description}}</td>
+                  <td>{{module.project_technology}}</td>
+                  <td>{{module.estimatedHours}}</td>
+                  <td>{{module.status_id_id}}</td>
+                  <td><a class = "btn btn-danger" href = "{% url 'deletetask' module.pk%}">Delete</a></td>
+                  <td><a class = "btn btn-primary" href = "{% url 'updatetask' module.pk%}">Update</a></td>
+              </tr>
+                
+              {% endfor %}
+          </tbody>
+      </tr>
+  </table>
+ {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+
+<body>
+{% block content %}
+<div id="container" style="width: 75%;">
+<canvas id="pie-chart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+{% comment %} <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script> {% endcomment %}
+
+<script>
+
+    var config = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: {{ data|safe }},
+                backgroundColor:[
+                '#F73309', '#0950F7','#3DF709', '#FFFB03', '#B6ABAC'
+                ],
+                label: 'estimatedHours'
+            }],
+            labels: {{ labels|safe }},
+        },
+        options: {
+            responsive: true
+        }
+    };
+
+    window.onload = function() {
+        var ctx = document.getElementById('pie-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+    };
+</script>
+<h1>hello</h1>
+{% endblock content %}
+</body>
+</html>
+  
+

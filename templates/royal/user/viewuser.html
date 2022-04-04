@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+
+<body>
+
+  <!-- ***** Header Area Start ***** -->
+  {% block navbar %}
+ 
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                  <a href="index.html" class="logo">
+                      <img src="{% static 'royal/assets/images/templatemo-eduwell.png' %}" alt="EduWell Template">
+                  </a>
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                   <ul>
+                                    <li class="active">
+                                        <a href="{% url 'home' %}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="#portfolio">Portfolio</a>
+                                    </li>
+                                    <li class="drop-down">
+                                        <a href="">ACTIVITY</a>
+                                        <ul>
+                                            <li class="drop-down">
+                                                <a href="#">Task Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'addtask' %}">Add Task</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewtask' %}">View Task</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">User Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'adduser' %}">Add User</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">Team Activity</a>
+                                                <ul>
+                                                   <li>
+                                                        <a href="{% url 'addteam' %}">Add Team</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewteam' %}">View Team</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'contact_us' %}">Contact Us</a>
+                                    </li>
+                                </ul>
+                                
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+                </nav>
+              </div>
+          </div>
+      </div>
+  </header> 
+  {% endblock navbar %} 
+  <!-- ***** Header Area End ***** -->
+  
+  {% block content %}
+  <br><br><br><br><br>
+  <div class="section-heading">
+          <h4>VIEW <em> ALL USERS</em></h4>
+      </div>
+  <table class="table">
+      <tr>
+          <thead class="thread-light">
+              <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col">EMAIL</th>
+                  <th scope="col">PASSWORD</th>
+                  <th scope="col">ROLE</th>
+                  <th scope="col">ACTION</th>
+                  {% comment %} <th scope="col">ACTION</th> {% endcomment %}
+              </tr>
+          </thead>
+          <tbody>
+              {% for module in temp  %}
+              <tr>
+                  <td><a href = "{% url 'detailuser' module.pk%}">{{module.id}}</a></td>
+                  {% comment %} <td>{{module.id}}</td> {% endcomment %}
+                  <td>{{module.user_name}}</td>
+                  <td>{{module.user_email}}</td>
+                  <td>{{module.user_password}}</td>
+                  <td>{{module.role_id_id}}</td>
+                  <td><a class = "btn btn-danger" href = "{% url 'deleteuser' module.pk%}">Delete</a></td>
+                  <td><a class = "btn btn-primary" href = "{% url 'updateuser' module.pk%}">Update</a></td>
+              </tr>
+                
+              {% endfor %}
+          </tbody>
+      </tr>
+  </table>
+ {% endblock content %}
+</body>
+</html>
