@@ -25,6 +25,7 @@ class ProjectDetail(BaseField):
 
     def __str__(self):
         return self.project_title
+    
 
 
 class ProjectTeam(BaseField):
@@ -32,9 +33,6 @@ class ProjectTeam(BaseField):
     user1 =  models.ForeignKey(User1, on_delete=models.CASCADE)
     class Meta:
         db_table = 'project_team'
-
-    def __str__(self):
-        return self.projectdetail
 
     
 

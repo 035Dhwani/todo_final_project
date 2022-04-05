@@ -32,7 +32,7 @@
                                         <a href="{% url 'home' %}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'service' %}">Services</a>
+                                        <a href="{% url 'chart' %}">Dashboard</a>
                                     </li>
                                     <li>
                                         <a href="#portfolio">Portfolio</a>
@@ -73,6 +73,9 @@
                                         </ul>
                                     </li>
                                     <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                    </li>
+                                    <li>
                                         <a href="{% url 'contact_us' %}">Contact Us</a>
                                     </li>
                                 </ul>
@@ -108,14 +111,14 @@
               </tr>
           </thead>
           <tbody>
-              {% for module in temp  %}
+              {% for module in temps  %}
               <tr>
                   <td><a href = "{% url 'detailuser' module.pk%}">{{module.id}}</a></td>
                   {% comment %} <td>{{module.id}}</td> {% endcomment %}
                   <td>{{module.user_name}}</td>
                   <td>{{module.user_email}}</td>
-                  <td>{{module.user_password}}</td>
-                  <td>{{module.role_id_id}}</td>
+                  <td>{{module.user_password|password}}</td>
+                  <td>{{module.role_id}}</td>
                   <td><a class = "btn btn-danger" href = "{% url 'deleteuser' module.pk%}">Delete</a></td>
                   <td><a class = "btn btn-primary" href = "{% url 'updateuser' module.pk%}">Update</a></td>
               </tr>

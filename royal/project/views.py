@@ -28,12 +28,12 @@ def pie_chart(request):
         lables.append(i.project_title)
         data.append(i.estimatedHours)
 
-        return render(request, 'royal/pie_chart.html',
-            {
-            'lables': lables,
-            'data': data,
+    return render(request, 'royal/pie_chart.html',
+        {
+        'labels': lables,
+        'data': data,
 
-            })
+        })
 
 class AddModule(CreateView):
     model = ProjectDetail
@@ -44,7 +44,7 @@ class AddModule(CreateView):
 class ViewModule(ListView):
     model = ProjectDetail 
     temp = model.objects.all() 
-    context_object_name = 'temp'
+    context_object_name = 'temps'
     template_name = 'royal/task/viewtask.html'
     
 class DetailModule(DetailView):
@@ -65,12 +65,12 @@ class UpdateModule(UpdateView):
 
 class AddTeam(CreateView):
     model =  ProjectTeam
-    fields = ['projectdetail_id', 'user1_id']
+    fields = ['projectdetail', 'user1']
     template_name = 'royal/team/addteam.html'
     success_url = '/project/viewteam/'
 
 class ViewTeam(ListView):
     model = ProjectTeam
     temp = model.objects.all() 
-    context_object_name = 'temp'
+    context_object_name = 'temps'
     template_name = 'royal/team/viewteam.html'

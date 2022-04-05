@@ -1,24 +1,105 @@
 {% extends 'base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
   </head>
 
 <body>
-{% block content %}
-<div id="container" style="width: 75%;">
-<canvas id="pie-chart"></canvas>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-{% comment %} <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script> {% endcomment %}
 
-<script>
+
+  <!-- ***** Header Area Start ***** -->
+  {% block navbar %}
+ 
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                <nav class="main-nav">
+                  <!-- ***** Logo Start ***** -->
+                  <a href="index.html" class="logo">
+                      <img src="{% static 'royal/assets/images/templatemo-eduwell.png' %}" alt="EduWell Template">
+                  </a>
+                  <!-- ***** Logo End ***** -->
+                  <!-- ***** Menu Start ***** -->
+                   <ul>
+                                    <li class="active">
+                                        <a href="{% url 'home' %}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'chart' %}">Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <a href="#portfolio">Portfolio</a>
+                                    </li>
+                                    <li class="drop-down">
+                                        <a href="">ACTIVITY</a>
+                                        <ul>
+                                            <li class="drop-down">
+                                                <a href="#">Task Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'addtask' %}">Add Task</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewtask' %}">View Task</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">User Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'adduser' %}">Add User</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewuser' %}">View User</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="drop-down">
+                                                <a href="#">Team Activity</a>
+                                                <ul>
+                                                    <li>
+                                                        <a href="{% url 'addteam' %}">Add Team</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'viewteam' %}">View Team</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'contact_us' %}">Contact Us</a>
+                                    </li>
+                                </ul>
+                                    
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+                </nav>
+              </div>
+          </div>
+      </div>
+  </header> 
+  {% endblock navbar %}
+  <!-- ***** Header Area End ***** -->
+
+  {% block content %}
+     <br><br><br><br><br><br>
+        <div id="container" style="width: 75%;">
+        <canvas id="pie-chart"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        {% comment %} <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script> {% endcomment %}
+
+        <script>
 
     var config = {
         type: 'pie',
@@ -28,9 +109,9 @@
                 backgroundColor:[
                 '#F73309', '#0950F7','#3DF709', '#FFFB03', '#B6ABAC'
                 ],
-                label: 'estimatedHours'
+                label: 'project_title'
             }],
-            labels: {{ labels|safe }},
+            labels: {{ labels|safe }}
         },
         options: {
             responsive: true
@@ -41,10 +122,44 @@
         var ctx = document.getElementById('pie-chart').getContext('2d');
         window.myPie = new Chart(ctx, config);
     };
+    console.log("Hello...");
 </script>
-<h1>hello</h1>
-{% endblock content %}
+
+{% comment %} <section class="contact-us">
+    <div class="container">
+
+        <div class="col-lg-12">
+          <ul class="social-icons">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-12">
+          <p class="copyright">Copyright © 2022 EduWell Co., Ltd. All Rights Reserved. 
+          
+          <br>Design: <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+        </div>
+    </div>
+  </section> {% endcomment %}
+ {% endblock content %}
 </body>
 </html>
+    
+
+
+
+
+
+
+
+{% comment %} 
+{% endblock content %}
+{% block script %}
+
+{% endblock script %} {% endcomment %}
+
   
 

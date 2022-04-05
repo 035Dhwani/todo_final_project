@@ -11,6 +11,7 @@ from django.views.generic import ListView,DetailView
 from royal.employee.models import User1
 from django.conf import settings
 from django.core.mail import send_mail
+from django.contrib.auth import authenticate, login, logout
 
 
 class AddUser(CreateView):
@@ -22,7 +23,7 @@ class AddUser(CreateView):
 class ViewUser(ListView):
     model = User1 
     temp = model.objects.all() 
-    context_object_name = 'temp'
+    context_object_name = 'temps'
     template_name = 'royal/user/viewuser.html'
     
 class DetailUser(DetailView):
@@ -49,3 +50,5 @@ def mail(request):
      send_mail(subject,message,email_from,recipient_list)
      
      return HttpResponse('mail sent..')
+
+

@@ -36,44 +36,44 @@
                                     <li>
                                         <a href="#portfolio">Portfolio</a>
                                     </li>
-                                    <li class="drop-down">
-                                        <a href="">ACTIVITY</a>
-                                        <ul>
-                                            <li class="drop-down">
-                                                <a href="#">Task Activity</a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="{% url 'addtask' %}">Add Task</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{% url 'viewtask' %}">View Task</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="drop-down">
-                                                <a href="#">User Activity</a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="{% url 'adduser' %}">Add User</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{% url 'viewuser' %}">View User</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="drop-down">
-                                                <a href="#">Team Activity</a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="{% url 'addtask' %}">Add Team</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{% url 'viewtask' %}">View Team</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    {% comment %} # <li class="drop-down">
+                                    #     <a href="">ACTIVITY</a>
+                                    #     <ul>
+                                    #         <li class="drop-down">
+                                    #             <a href="#">Task Activity</a>
+                                    #             <ul>
+                                    #                 <li>
+                                    #                     <a href="{% url 'addtask' %}">Add Task</a>
+                                    #                 </li>
+                                    #                 <li>
+                                    #                     <a href="{% url 'viewtask' %}">View Task</a>
+                                    #                 </li>
+                                    #             </ul>
+                                    #         </li>
+                                    #         <li class="drop-down">
+                                    #             <a href="#">User Activity</a>
+                                    #             <ul>
+                                    #                 <li>
+                                    #                     <a href="{% url 'adduser' %}">Add User</a>
+                                    #                 </li>
+                                    #                 <li>
+                                    #                     <a href="{% url 'viewuser' %}">View User</a>
+                                    #                 </li>
+                                    #             </ul>
+                                    #         </li>
+                                    #         <li class="drop-down">
+                                    #             <a href="#">Team Activity</a>
+                                    #             <ul>
+                                    #                 <li>
+                                    #                     <a href="{% url 'addtask' %}">Add Team</a>
+                                    #                 </li>
+                                    #                 <li>
+                                    #                     <a href="{% url 'viewtask' %}">View Team</a>
+                                    #                 </li>
+                                    #             </ul>
+                                    #         </li>
+                                    #     </ul>
+                                    # </li> {% endcomment %}
                                     <li>
                                         <a href="{% url 'contact_us' %}">Contact Us</a>
                                     </li>

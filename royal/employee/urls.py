@@ -20,6 +20,7 @@ urlpatterns = [
     path('<int:pk>/viewuser/',DetailUser.as_view(), name = 'detailuser'),
     path('<int:pk>/deleteuser/',DeleteUser.as_view(), name='deleteuser'),
     path('<int:pk>/updateuser/',UpdateUser.as_view(), name='updateuser'),
+   
 
     # path ('home/our-services.html/', AddModule.as_view(), name = 'add')
   

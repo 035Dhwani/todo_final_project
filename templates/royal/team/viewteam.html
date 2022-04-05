@@ -32,7 +32,7 @@
                                         <a href="{% url 'home' %}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'service' %}">Services</a>
+                                        <a href="{% url 'chart' %}">Dashboard</a>
                                     </li>
                                     <li>
                                         <a href="#portfolio">Portfolio</a>
@@ -76,6 +76,9 @@
                                         </ul>
                                     </li>
                                     <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                    </li>
+                                    <li>
                                         <a href="{% url 'contact_us' %}">Contact Us</a>
                                     </li>
                                 </ul>
@@ -108,12 +111,12 @@
               </tr>
           </thead>
           <tbody>
-              {% for team in temp  %}
+              {% for team in temps  %}
               <tr>
                   {% comment %} <td><a href = "{% url 'detailtask' module.pk%}">{{module.id}}</a></td> {% endcomment %}
                   <td>{{team.id}}</td>
-                  <td>{{team.projectdetail_id}}</td>
-                  <td>{{team.user1_id}}</td>
+                  <td>{{team.projectdetail}}</td>
+                  <td>{{team.user1}}</td>
                  
                   {% comment %} <td><a class = "btn btn-danger" href = "{% url 'deletetask' module.pk%}">Delete</a></td>
                   <td><a class = "btn btn-primary" href = "{% url 'updatetask' module.pk%}">Update</a></td> {% endcomment %}

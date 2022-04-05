@@ -33,7 +33,7 @@
                                         <a href="{% url 'home' %}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'service' %}">Services</a>
+                                        <a href="{% url 'chart' %}">Dashboard</a>
                                     </li>
                                     <li>
                                         <a href="#portfolio">Portfolio</a>
@@ -67,28 +67,18 @@
                                                 <a href="#">Team Activity</a>
                                                 <ul>
                                                     <li>
-                                                        <a href="{% url 'addtask' %}">Add Team</a>
+                                                        <a href="{% url 'addteam' %}">Add Team</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{% url 'viewtask' %}">View Team</a>
+                                                        <a href="{% url 'viewteam' %}">View Team</a>
                                                     </li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                     <li class="drop-down">
-                                        <a href="">PEOPLE</a>
-                                        <ul>
-                                            <li class="drop-down">
-                                                <a href="#">START TEAM</a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="{% url 'addteam' %}">Invite Teammate</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li> 
+                                    <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                    </li>
                                     <li>
                                         <a href="{% url 'contact_us' %}">Contact Us</a>
                                     </li>
