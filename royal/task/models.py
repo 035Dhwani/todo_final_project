@@ -18,4 +18,11 @@ class UserTask(BaseField):
 
     class Meta:
         db_table = 'user_task'
-       
+
+class SubTask(BaseField):
+    subtask = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
+    time = models.IntegerField()   
+
+    class Meta:
+        db_table = 'sub_task'
