@@ -27,7 +27,7 @@
                   </a>
                   <!-- ***** Logo End ***** -->
                   <!-- ***** Menu Start ***** -->
-                 <ul>
+                   <ul>
                                     <li class="active">
                                         <a href="{% url 'home' %}">Home</a>
                                     </li>
@@ -37,7 +37,6 @@
                                     <li>
                                         <a href="#portfolio">Portfolio</a>
                                     </li>
-
                                     <li class="drop-down">
                                         <a href="">ACTIVITY</a>
                                         <ul>
@@ -66,7 +65,7 @@
                                             <li class="drop-down">
                                                 <a href="#">Team Activity</a>
                                                 <ul>
-                                                    <li>
+                                                   <li>
                                                         <a href="{% url 'addteam' %}">Add Team</a>
                                                     </li>
                                                     <li>
@@ -83,7 +82,7 @@
                                         <a href="{% url 'contact_us' %}">Contact Us</a>
                                     </li>
                                 </ul>
-                                     
+                        
                   <a class='menu-trigger'>
                       <span>Menu</span>
                   </a>
@@ -97,56 +96,36 @@
   <!-- ***** Header Area End ***** -->
   
   {% block content %}
-  
- {% endblock content %}
- 
- {% block header %}
-
-  <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <h4>USER<em> DETAIL</em></h4>
+  <br><br><br><br><br>
+  <div class="section-heading">
+          <h4>VIEW <em> ALL MODULES</em></h4>
       </div>
-
-        <div class="row about-container">
-
-          <div class="col-lg-6 content order-lg-1 order-2">
-
-           <table class="table">
+  <table class="table">
       <tr>
           <thead class="thread-light">
               <tr>
-                  {% comment %} <th scope="col">ID</th> {% endcomment %}
-                  <th scope="col">NAME</th>
-                  <th scope="col">EMAIL</th>
-                  <th scope="col">PASSWORD</th> 
-                  <th scope="col">ROLE</th>
-                  {% comment %} <th scope="col">ACTION</th> {% endcomment %}
-                  {% comment %} <th scope="col">ACTION</th> {% endcomment %}
+                  <th scope="col">ID</th>
+                  <th scope="col">SUB TASK</th>
+                  <th scope="col">DESCRIPTION</th>
+                  <th scope="col">TIME TAKEN</th> 
+                  <th scope="col">ACTION</th>
               </tr>
           </thead>
           <tbody>
-              {% comment %} {% for module in temps  %} {% endcomment %}
-              <tr>
-                  {% comment %} <td><a href = "{% url 'detailuser' module.pk%}">{{module.id}}</a></td> {% endcomment %}
-                  {% comment %} <td>{{module.id}}</td> {% endcomment %}
-                  <td>{{temp.user_name}}</td>
-                  <td>{{temp.user_email}}</td>
-                  <td>{{temp.user_password}}</td> 
-                  <td>{{temp.role_id}}</td>
-                  {% comment %} <td><a class = "btn btn-danger" href = "{% url 'deleteuser' module.pk%}">Delete</a></td>
-                  <td><a class = "btn btn-primary" href = "{% url 'updateuser' module.pk%}">Update</a></td> {% endcomment %}
+              {% for module in temp  %}
+              <tr>       
+                  <td><a href = "{% url 'detailtask' module.pk%}">{{module.id}}</a></td>
+                  <td>{{module.subtask}}</td>
+                  <td>{{module.description}}</td>
+                  {% comment %} <td>{{module.time}}</td>  {% endcomment %}
+                  {% comment %} <td><a class = "btn btn-danger" href = "{% url 'deletetask' module.pk%}">Delete</a>&nbsp&nbsp&nbsp&nbsp
+                  <a class = "btn btn-success" href = "{% url 'updatetask' module.pk%}">Update</a>&nbsp&nbsp&nbsp&nbsp
+                  <a class = "btn btn-primary" href = "{% url 'adduser' %}">Add Member</a></td> {% endcomment %}
               </tr>
-                
-              {% comment %} {% endfor %} {% endcomment %}
+              {% endfor %}
           </tbody>
       </tr>
   </table>
-          </div>
-        </div>
-        </div>
-      </div>
-    </section><!-- #about -->
-    {% endblock header %}
+ {% endblock content %}
 </body>
 </html>

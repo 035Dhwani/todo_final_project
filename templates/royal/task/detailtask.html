@@ -32,7 +32,7 @@
                                         <a href="{% url 'home' %}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'chart' %}">Dashboard</a>
+                                        <a href="{% url 'dashboard' %}">Dashboard</a>
                                     </li>
                                     <li>
                                         <a href="#portfolio">Portfolio</a>
@@ -101,50 +101,41 @@
  {% endblock content %}
  
  {% block header %}
-
-  <section id="about">
-      <div class="container">
+ <br><br><br><br><br>
         <div class="section-heading">
           <h4>PROJECT<em> DETAIL</em></h4>
-      </div>
-
-        <div class="row about-container">
-
-          <div class="col-lg-6 content order-lg-1 order-2">
-
-            <div class="icon-box wow fadeInUp">
-              <h4>1. </h4>
-              <!-- <div class="icon"><i class="fa fa-shopping-bag"></i></div> -->
-              <h4 class="title"><a href="">MODULE TITLE</a></h4>
-              <dl class="description">
-                  <dd><h6>-> {{temp.project_title}}</h6></dd>
-             </dl>
-            </div>
-
-            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-              <!-- <div class="icon"><i class="fa fa-photo"></i></div> -->
-              <h4>2. </h4>
-              <h4 class="title"><a href="">MODULE DISCRIPTION</a></h4>
-               <dl class="description">
-                {% comment %} <dt>Module Description</dt> {% endcomment %}
-                <dd><h6>-> {{temp.project_description}}</h6></dd>
-              </dl>
-            </div>
-
-            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <h4>3. </h4>
-              <!--<div class="icon"><i class="fa fa-bar-chart"></i></div> -->
-              <h4 class="title"><a href="">MODULE TECHNOLOGY</a></h4>
-              <dl class="description">
-                <dd ><h6>-> {{temp.project_technology}}</h6></dd>
-             </dl>
-            </div>
-
-          </div>
         </div>
-        </div>
-      </div>
-    </section><!-- #about -->
+    <table class="table">
+      <tr>
+          <thead class="thread-light">
+              <tr >
+                  <th scope="col">TITLE</th>
+                   <th scope="col">DESCRIPTION</th>
+                  <th scope="col">TECHNOLOGY</th>
+                  <th scope="col">ESTIMATED HOURS</th> 
+                  <th scope="col">START DATE</th> 
+                  <th scope="col">END DATE</th> 
+                  <th scope="col">STATUS</th>
+                  <th scope="col">ACTION</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>       
+                  <td>{{temp.project_title}}</td>
+                   <td>{{temp.project_description}}</td>
+                  <td>{{temp.project_technology}}</td>
+                   <td>{{temp.estimatedHours}}</td> 
+                  <td>{{temp.created_at}}</td>
+                   <td>{{temp.updated_at}}</td>
+                  <td>{{temp.status_id}}</td>
+                  <td><a class = "btn btn-success" href = "{% url 'addsubtask' %}">Add Sub Module</a></td>
+                  <td><a class = "btn btn-success" >Generate Report</a></td>
+              </tr>
+          </tbody>
+      </tr>
+  </table>
+          
+    
     {% endblock header %}
 </body>
 </html>

@@ -4,14 +4,10 @@
 <html lang="en">
 
   <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
   </head>
 
 <body>
+
 
   <!-- ***** Header Area Start ***** -->
   {% block navbar %}
@@ -27,7 +23,7 @@
                   </a>
                   <!-- ***** Logo End ***** -->
                   <!-- ***** Menu Start ***** -->
-                 <ul>
+                   <ul>
                                     <li class="active">
                                         <a href="{% url 'home' %}">Home</a>
                                     </li>
@@ -37,7 +33,6 @@
                                     <li>
                                         <a href="#portfolio">Portfolio</a>
                                     </li>
-
                                     <li class="drop-down">
                                         <a href="">ACTIVITY</a>
                                         <ul>
@@ -83,7 +78,7 @@
                                         <a href="{% url 'contact_us' %}">Contact Us</a>
                                     </li>
                                 </ul>
-                                     
+                                    
                   <a class='menu-trigger'>
                       <span>Menu</span>
                   </a>
@@ -93,60 +88,77 @@
           </div>
       </div>
   </header> 
-  {% endblock navbar %} 
+  {% endblock navbar %}
   <!-- ***** Header Area End ***** -->
-  
+
   {% block content %}
-  
+     <br><br><br><br><br><br>
+       
+<div id="container" style="width: 75%;">
+        <canvas id="pie-chart"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        {% comment %} <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script> {% endcomment %}
+
+        <script>
+
+    var config = {
+        type: 'bar',
+        data: {
+            datasets: [{
+                data: {{ data|safe }},
+                backgroundColor:[
+                '#F73309', '#0950F7','#3DF709', '#FFFB03', '#B6ABAC'
+                ],
+                label: 'project_title'
+            }],
+            labels: {{ labels|safe }}
+        },
+        options: {
+            responsive: true
+        }
+    };
+
+    window.onload = function() {
+        var ctx = document.getElementById('pie-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+    };
+    console.log("Hello...");
+</script>
+
+{% comment %} <section class="contact-us">
+    <div class="container">
+
+        <div class="col-lg-12">
+          <ul class="social-icons">
+           <li><a href="https://www.facebook.com/pages/category/Computer-Company/Arth-InfoSoft-Pvt-Ltd-186190281477702/"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/arthinfosoft"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://in.linkedin.com/company/arth-infosoft-pvt.-ltd."><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="http://www.arthinfosoft.in"><i class="fa fa-dribbble"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-12">
+          <p class="copyright">Copyright © 2022 Arth Infosoft Pvt.Ltd. All Rights Reserved.</p>
+
+        </div>
+    </div>
+  </section> {% endcomment %}
  {% endblock content %}
- 
- {% block header %}
-
-  <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <h4>USER<em> DETAIL</em></h4>
-      </div>
-
-        <div class="row about-container">
-
-          <div class="col-lg-6 content order-lg-1 order-2">
-
-           <table class="table">
-      <tr>
-          <thead class="thread-light">
-              <tr>
-                  {% comment %} <th scope="col">ID</th> {% endcomment %}
-                  <th scope="col">NAME</th>
-                  <th scope="col">EMAIL</th>
-                  <th scope="col">PASSWORD</th> 
-                  <th scope="col">ROLE</th>
-                  {% comment %} <th scope="col">ACTION</th> {% endcomment %}
-                  {% comment %} <th scope="col">ACTION</th> {% endcomment %}
-              </tr>
-          </thead>
-          <tbody>
-              {% comment %} {% for module in temps  %} {% endcomment %}
-              <tr>
-                  {% comment %} <td><a href = "{% url 'detailuser' module.pk%}">{{module.id}}</a></td> {% endcomment %}
-                  {% comment %} <td>{{module.id}}</td> {% endcomment %}
-                  <td>{{temp.user_name}}</td>
-                  <td>{{temp.user_email}}</td>
-                  <td>{{temp.user_password}}</td> 
-                  <td>{{temp.role_id}}</td>
-                  {% comment %} <td><a class = "btn btn-danger" href = "{% url 'deleteuser' module.pk%}">Delete</a></td>
-                  <td><a class = "btn btn-primary" href = "{% url 'updateuser' module.pk%}">Update</a></td> {% endcomment %}
-              </tr>
-                
-              {% comment %} {% endfor %} {% endcomment %}
-          </tbody>
-      </tr>
-  </table>
-          </div>
-        </div>
-        </div>
-      </div>
-    </section><!-- #about -->
-    {% endblock header %}
 </body>
 </html>
+    
+
+
+
+
+
+
+
+{% comment %} 
+{% endblock content %}
+{% block script %}
+
+{% endblock script %} {% endcomment %}
+
+  
+

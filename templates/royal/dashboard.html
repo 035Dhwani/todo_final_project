@@ -2,32 +2,24 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-  </head>
-
-<body>
-
-  <!-- ***** Header Area Start ***** -->
-  {% block navbar %}
- 
-  <header class="header-area header-sticky">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                <nav class="main-nav">
-                  <!-- ***** Logo Start ***** -->
-                  <a href="index.html" class="logo">
-                      <img src="{% static 'royal/assets/images/templatemo-eduwell.png' %}" alt="EduWell Template">
-                  </a>
-                  <!-- ***** Logo End ***** -->
-                  <!-- ***** Menu Start ***** -->
-                 <ul>
+    <head>
+    </head>
+    <body>
+        <!-- ***** Header Area Start ***** -->
+        {% block navbar %}
+            <header class="header-area header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <nav class="main-nav">
+                                <!-- ***** Logo Start ***** -->
+                                <a href="index.html" class="logo">
+                                    <img src="{% static 'royal/assets/images/templatemo-eduwell.png' %}"
+                                         alt="EduWell Template">
+                                </a>
+                                <!-- ***** Logo End ***** -->
+                                <!-- ***** Menu Start ***** -->
+                                <ul>
                                     <li class="active">
                                         <a href="{% url 'home' %}">Home</a>
                                     </li>
@@ -37,7 +29,6 @@
                                     <li>
                                         <a href="#portfolio">Portfolio</a>
                                     </li>
-
                                     <li class="drop-down">
                                         <a href="">ACTIVITY</a>
                                         <ul>
@@ -83,70 +74,47 @@
                                         <a href="{% url 'contact_us' %}">Contact Us</a>
                                     </li>
                                 </ul>
-                                     
-                  <a class='menu-trigger'>
-                      <span>Menu</span>
-                  </a>
-                  <!-- ***** Menu End ***** -->
-                </nav>
-              </div>
-          </div>
+                                <a class='menu-trigger'>
+                                    <span>Menu</span>
+                                </a>
+                                <!-- ***** Menu End ***** -->
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        {% endblock navbar %}
+        {% block content %}
+  <br><br><br><br><br>
+  <div class="section-heading">
+          <h4>VIEW <em> CHARTS</em></h4>
       </div>
-  </header> 
-  {% endblock navbar %} 
-  <!-- ***** Header Area End ***** -->
-  
-  {% block content %}
-  
- {% endblock content %}
- 
- {% block header %}
-
-  <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <h4>USER<em> DETAIL</em></h4>
-      </div>
-
-        <div class="row about-container">
-
-          <div class="col-lg-6 content order-lg-1 order-2">
-
-           <table class="table">
+  <table class="table">
       <tr>
           <thead class="thread-light">
               <tr>
-                  {% comment %} <th scope="col">ID</th> {% endcomment %}
-                  <th scope="col">NAME</th>
-                  <th scope="col">EMAIL</th>
-                  <th scope="col">PASSWORD</th> 
-                  <th scope="col">ROLE</th>
-                  {% comment %} <th scope="col">ACTION</th> {% endcomment %}
-                  {% comment %} <th scope="col">ACTION</th> {% endcomment %}
+                  <th scope="col">Sr.No.</th>
+                  <th scope="col">Chart Name</th>
               </tr>
           </thead>
           <tbody>
-              {% comment %} {% for module in temps  %} {% endcomment %}
               <tr>
-                  {% comment %} <td><a href = "{% url 'detailuser' module.pk%}">{{module.id}}</a></td> {% endcomment %}
-                  {% comment %} <td>{{module.id}}</td> {% endcomment %}
-                  <td>{{temp.user_name}}</td>
-                  <td>{{temp.user_email}}</td>
-                  <td>{{temp.user_password}}</td> 
-                  <td>{{temp.role_id}}</td>
-                  {% comment %} <td><a class = "btn btn-danger" href = "{% url 'deleteuser' module.pk%}">Delete</a></td>
-                  <td><a class = "btn btn-primary" href = "{% url 'updateuser' module.pk%}">Update</a></td> {% endcomment %}
+                  <td><a class= "btn btn-success" href="{% url 'home' %}">1</a></a></td>
+                  <td>Home Page</td>
               </tr>
-                
-              {% comment %} {% endfor %} {% endcomment %}
+        
+              <tr>
+                  <td><a class= "btn btn-success" href="{% url 'pie' %}">2</a></td>
+                  <td>Pie Chart</td>
+              </tr>
+              <tr>
+                  <td><a  class= "btn btn-success" href="{% url 'bar' %}">3</a></td>
+                  <td>Bar Chart</td>
+              </tr>
           </tbody>
       </tr>
   </table>
-          </div>
-        </div>
-        </div>
-      </div>
-    </section><!-- #about -->
-    {% endblock header %}
-</body>
+
+        {% endblock content %}
+    </body>
 </html>

@@ -32,7 +32,7 @@
                                         <a href="{% url 'home' %}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'chart' %}">Dashboard</a>
+                                        <a href="{% url 'dashboard' %}">Dashboard</a>
                                     </li>
                                     <li>
                                         <a href="#portfolio">Portfolio</a>
@@ -106,26 +106,26 @@
               <tr>
                   <th scope="col">ID</th>
                   <th scope="col">TITLE</th>
-                  <th scope="col">DESCRIPTION</th>
+                  {% comment %} <th scope="col">DESCRIPTION</th>
                   <th scope="col">TECHNOLOGY</th>
-                  <th scope="col">ESTIMATED HOURS</th>
+                  <th scope="col">ESTIMATED HOURS</th> {% endcomment %}
                   <th scope="col">STATUS</th>
                   <th scope="col">ACTION</th>
               </tr>
           </thead>
           <tbody>
               {% for module in temps  %}
-              <tr>
+              <tr>       
                   <td><a href = "{% url 'detailtask' module.pk%}">{{module.id}}</a></td>
                   <td>{{module.project_title}}</td>
-                  <td>{{module.project_description}}</td>
+                  {% comment %} <td>{{module.project_description}}</td>
                   <td>{{module.project_technology}}</td>
-                  <td>{{module.estimatedHours}}</td>
+                  <td>{{module.estimatedHours}}</td> {% endcomment %}
                   <td>{{module.status_id}}</td>
-                  <td><a class = "btn btn-danger" href = "{% url 'deletetask' module.pk%}">Delete</a></td>
-                  <td><a class = "btn btn-primary" href = "{% url 'updatetask' module.pk%}">Update</a></td>
+                  <td><a class = "btn btn-danger" href = "{% url 'deletetask' module.pk%}">Delete</a>&nbsp&nbsp&nbsp&nbsp
+                  <a class = "btn btn-success" href = "{% url 'updatetask' module.pk%}">Update</a>&nbsp&nbsp&nbsp&nbsp
+                  <a class = "btn btn-primary" href = "{% url 'adduser' %}">Add Member</a></td>
               </tr>
-                
               {% endfor %}
           </tbody>
       </tr>
