@@ -44,8 +44,12 @@ INSTALLED_APPS = [
     'royal.employee',
     'royal.project',
     'royal.task',
+    'crispy_forms',
+    'widget_tweaks',
     
 ]
+
+AUTH_USER_MODEL = 'employee.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
