@@ -14,7 +14,10 @@ from royal.project.views import AddTeam,ViewTeam
 urlpatterns = [
     
     path('home/',views.index, name='home'),
-    path('pie/',views.pie_chart, name='chart'),
+    path('pie/',views.pie_chart, name='pie'),
+    path('bar/',views.bar_chart, name='bar'),
+    path('subscription/',views.subscription, name='subscription'),
+    path('dashboard/',views.chart, name='dashboard'),
     path('main/',views.main),
     path('addtask/',AddModule.as_view(), name = 'addtask'),
     path('viewtask/',ViewModule.as_view(), name = 'viewtask'),

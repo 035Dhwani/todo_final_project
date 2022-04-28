@@ -1,6 +1,5 @@
 
 from dataclasses import fields
-from msilib.schema import ListView
 from multiprocessing import context
 from pyexpat import model
 from django.shortcuts import render
@@ -19,6 +18,8 @@ def contact(request):
      return render(request, 'royal/contact.html')
 def service(request):
      return render(request, 'royal/service.html')
+def subscription(request):
+     return render(request, 'royal/subscription.html')
 def pie_chart(request):
     lables = []
     data = []
@@ -35,6 +36,25 @@ def pie_chart(request):
 
         })
 
+def bar_chart(request):
+    lables = []
+    data = []
+
+    queryset = ProjectDetail.objects.all()[:5]
+    for i in queryset:
+        lables.append(i.project_title)
+        data.append(i.estimatedHours)
+
+    return render(request, 'royal/bar_chart.html',
+        {
+        'labels': lables,
+        'data': data,
+
+        })
+
+def chart(request):
+     return render(request, 'royal/dashboard.html')
+
 class AddModule(CreateView):
     model = ProjectDetail
     fields = ['project_title', 'project_description', 'project_technology', 'estimatedHours', 'status_id']
@@ -46,6 +66,7 @@ class ViewModule(ListView):
     temp = model.objects.all() 
     context_object_name = 'temps'
     template_name = 'royal/task/viewtask.html'
+    ordering = ['id']
     
 class DetailModule(DetailView):
     model = ProjectDetail
@@ -74,3 +95,4 @@ class ViewTeam(ListView):
     temp = model.objects.all() 
     context_object_name = 'temps'
     template_name = 'royal/team/viewteam.html'
+    ordering = ['id']
